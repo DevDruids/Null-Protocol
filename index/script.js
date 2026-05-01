@@ -41,55 +41,53 @@ function typeText(){
 
 typeText();
 
-function validateInput() {
+async function validateInput() {
   const name = inputValueName.value.trim();
   const pass = inputValuePassword.value.trim();
-
-  let usersDB = [];
-  const encryptedData = localStorage.getItem("users_db");
-  
-  if (encryptedData) {
-    try {
-      const bytes = CryptoJS.AES.decrypt(encryptedData, SECRET_KEY);
-      usersDB = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-    } catch (e) {
-      usersDB = [];
-    }
-  }
 
   if (name === "" || pass === "") {
     popUpValidation.innerHTML = "<i class='bi bi-exclamation-triangle'></i> Заповніть усі поля!";
     popUpValidation.classList.add("show");
     soundError.volume = 0.2;
     soundError.play();
-    setTimeout(() => popUpValidation.classList.remove("show"), 2000);
+    setTimeout(() => 
+      popUpValidation.classList.remove("show")
+    , 2000);
     return;
   }
-
-  const existingUser = usersDB.find(u => u.username.toLowerCase() === name.toLowerCase());
-
-  if (existingUser) {
-    if (existingUser.password === pass) {
-      localStorage.setItem("username", name);
-   
-      const currentUserData = CryptoJS.AES.encrypt(JSON.stringify(existingUser), SECRET_KEY).toString();
-      localStorage.setItem("current_user", currentUserData);
-      
-      window.location.href = "../account/account.html";
-    } else {
-      popUpValidation.innerHTML = "<i class='bi bi-exclamation-triangle'></i> Невірний пароль!";
-      popUpValidation.classList.add("show");
-      soundError.play();
-      setTimeout(() => popUpValidation.classList.remove("show"), 2000);
-    }
-  } else {
-    usersDB.push({ username: name, password: pass });
   
-    const ciphertext = CryptoJS.AES.encrypt(JSON.stringify(usersDB), SECRET_KEY).toString();
-    localStorage.setItem("users_db", ciphertext);
-    
-    localStorage.setItem("username", name);
-    window.location.href = "../account/account.html";
-  }
+  setTimeout(() => {
+     window.location.href = "../account/account.html";
+  }, 500)
 }
+
+//   try {
+//     const response = await fetch("http://localhost:3000/api/auth", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ username: name, password: pass })
+//     });
+
+//     const result = await response.json();
+
+//     if (response.ok) {
+//       window.location.href = "../account/account.html";
+//     } 
+//     else {
+//       popUpValidation.innerHTML = `<i class='bi bi-exclamation-triangle'></i> ${result.message}`;
+//       popUpValidation.classList.add("show");
+//       soundError.play();
+//       setTimeout(() => 
+//         popUpValidation.classList.remove("show")
+//       , 2000);
+//     }
+//   } catch (error) {
+//       popUpValidation.innerHTML = "<i class='bi bi-wifi-off'></i> Сервер не відповідає";
+//       popUpValidation.classList.add("show");
+//       soundError.play();
+//       setTimeout(() => 
+//         popUpValidation.classList.remove("show")
+//       , 2000);
+//   }
+// }
   
