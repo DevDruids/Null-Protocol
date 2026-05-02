@@ -3,47 +3,48 @@
   --dark-bg: #080b10;
   --neon-red: #FF003F;
   --border-color: hsl(230 25% 15%);
+  --cyan-info: rgb(4, 211, 234);
+  
 }
 
 body {
   background-color: var(--dark-bg);
   margin: 0;
   padding: 0;
-  overflow: hidden;
-}
-
-.header{
   display: flex;
-  width: 100%;
   height: 100vh;
   overflow: hidden;
+  color: white;
 }
 
-.header-left {
+.sidebar-wrapper {
+  width: 350px;
   flex-shrink: 0;
-  position: relative; 
+}
+
+.sidebar {
   display: flex;
   height: 100vh;
-  width: 400px;
   flex-direction: column;
   border-right: 1px solid var(--border-color);
   background-color: #0b0e14;
 }
 
-.header-left h1 {
+.sidebar h1 {
   color: var(--neon-green);
-  font-size: 24px;
+  font-size: 22px;
   display: flex;
   align-items: center;
   font-weight: bold;
-  padding: 30px;
+  padding: 25px;
   margin: 0;
   text-transform: uppercase;
   font-family: "Orbitron", sans-serif;
   text-shadow: 0 0 10px rgba(0, 255, 127, 0.3);
+  letter-spacing: 2px;
 }
 
-.header-left h1 span {
+.sidebar h1 span {
   color: white;
   margin-left: 8px;
 }
@@ -57,41 +58,34 @@ body {
 .sidenav {
   flex-grow: 1;
   display: flex;
-  width: 100%;
   flex-direction: column;
-  gap: 5px;
-  padding-top: 20px;
+  gap: 10px;
+  padding-top: 35px;
 }
 
 .nav-item {
-  font-family: "Orbitron", sans-serif;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
   font-size: 18px;
-  padding: 12px 30px;
+  padding: 12px 25px;
   text-decoration: none;
   color: #818181;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  width: 95%;
-  margin-left: 10px;
+  letter-spacing: 2px;
 }
 
 .nav-item i {
-  font-size: 24px;
+  font-size: 20px;
   margin-right: 15px;
   color: #818181;
-  transition: all 0.3s ease;
 }
 
 .nav-item:hover {
   color: #f1f1f1;
   background-color: rgba(255, 255, 255, 0.03);
-}
-
-.nav-item:hover i {
-  color: #f1f1f1;
 }
 
 .nav-item.active {
@@ -106,14 +100,13 @@ body {
 
 .agent-info {
   margin-top: auto;
-  padding: 30px;
+  padding: 25px;
   border-top: 1px solid var(--border-color);
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .agent-status {
   font-family: "JetBrains Mono", monospace;
-  font-size: 13px;
+  font-size: 14px;
   color: #818181;
   text-transform: uppercase;
   margin-bottom: 5px;
@@ -124,104 +117,374 @@ body {
   font-family: "Orbitron", sans-serif;
   font-size: 20px;
   color: var(--neon-green);
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+  margin-bottom: 12px;
 }
 
 .agent-progress {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .agent-level {
   font-family: "Orbitron", sans-serif;
   border: 1px solid var(--neon-green);
   color: var(--neon-green);
-  padding: 2px 6px;
-  font-size: 13px;
+  padding: 1px 5px;
+  font-size: 12px;
+  background: rgba(0, 255, 127, 0.1);
   text-transform: uppercase;
-  background: rgba(0, 255, 127, 0.2);
-  word-spacing: 5px;
 }
 
 .agent-progress-bar-wrapper {
   flex-grow: 1;
-  height: 4px;
+  height: 3px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 2px;
-  overflow: hidden;
 }
 
 .agent-progress-bar {
   height: 100%;
   background: var(--neon-green);
-  box-shadow: 0 0 10px var(--neon-green);
-  transition: width 0.5s ease;
+  box-shadow: 0 0 8px var(--neon-green);
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .header-top {
-  flex-grow: 1;
-  align-self: flex-start;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: rgba(13, 17, 23, 0.9);
+  padding: 22px 30px;
   border-bottom: 1px solid var(--border-color);
   font-family: "JetBrains Mono", monospace;
-  height: 60px;
-  padding: 45px;
 }
 
 .sys-text {
   color: #818181;
   font-size: 18px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .sys-text i {
-  color: rgb(2, 181, 201);
+  color: var(--cyan-info);
+  margin-right: 8px;
   animation: glowNet 2s infinite;
+  font-size: 20px;
 }
 
 .header-top-right {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
 }
 
 .threat-level {
   color: var(--neon-red);
   font-size: 16px;
   border: 1px solid rgba(255, 0, 63, 0.4);
-  padding: 4px 10px;
+  padding: 3px 10px;
   background: rgba(255, 0, 63, 0.05);
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .date {
-  color: rgb(2, 181, 201);
+  color: var(--cyan-info);
   font-size: 16px;
-  font-family: "JetBrains Mono", monospace;
 }
 
 .messages {
   color: white;
-  cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
 }
 
+.dashboard-section, 
+.characters-section, 
+.board-section, 
+.terminal-section, 
+.progress-section {
+  padding: 40px 0;
+}
+
+.section-header h2 {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--neon-green);
+  font-size: 32px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  letter-spacing: 3px;
+}
+
+.header-description {
+  font-family: "JetBrains Mono", monospace;
+  color: #818181;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+
+section[class$="-section"] {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+.container{
+  margin: 0 auto; 
+  max-width: 1500px;
+}
+
+.agent-grid{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.agent-stat{
+  position: relative;
+  background: rgba(0, 255, 127, 0.03);
+  border: 1px solid rgba(0, 255, 127, 0.2);
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 
+    0 0 15px rgba(0, 255, 127, 0.1), 
+    inset 0 0 20px rgba(0, 255, 127, 0.05);
+}
+
+.agent-call{
+  color: #818181;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.agent-hero-name{
+  font-family: "Orbitron", sans-serif;
+  font-size: 32px;
+  color: var(--neon-green);
+  margin-bottom: 7px;
+}
+
+.agent-rank{
+  font-family: "JetBrains Mono", monospace;
+  color: var(--cyan-info);
+}
+
+.agent-stat-left{
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 20px;
+}
+
+.agent-icon-box{
+  font-size: 42px;
+  background-color: rgba(0, 255, 127, 0.2);
+  border: 3px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 5px 15px;
+}
+
+.agent-stat-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.agent-xp-info{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.xp-value{
+  font-size: 46px;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: -5px;
+}
+
+.xp-label{
+  color: #818181;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "Orbitron", sans-serif;
+}
+
+.agent-progress-area{
+  display: flex;
+  margin-top: 25px;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.progress-labels{
+  color: #818181;
+  font-family: "JetBrains Mono", monospace;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.progress-labels span:nth-child(2){
+  color: var(--neon-green);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.agent-stat-bar-bg{
+  height: 10px;
+  border: 1px solid var(--neon-green);
+  width: 100%;
+  position: relative;
+}
+
+.agent-stat-bar-fill{
+  background-color: var(--neon-green);
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cyber-card{
+  position: relative;
+}
+
+.cyber-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: 
+    linear-gradient(to right, var(--neon-green) 2px, transparent 2px) 0 0,
+    linear-gradient(to bottom, var(--neon-green) 2px, transparent 2px) 0 0,
+    linear-gradient(to left, var(--neon-green) 2px, transparent 2px) 100% 0,
+    linear-gradient(to bottom, var(--neon-green) 2px, transparent 2px) 100% 0,
+    linear-gradient(to right, var(--neon-green) 2px, transparent 2px) 0 100%,
+    linear-gradient(to top, var(--neon-green) 2px, transparent 2px) 0 100%,
+    linear-gradient(to left, var(--neon-green) 2px, transparent 2px) 100% 100%,
+    linear-gradient(to top, var(--neon-green) 2px, transparent 2px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  filter: drop-shadow(0 0 5px var(--neon-green));
+  pointer-events: none;
+}
+
+.global-stats{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "JetBrains Mono", monospace;
+  border: 1px solid rgba(4, 211, 234, 0.2);;
+  position: relative;
+  padding: 20px;
+  text-transform: uppercase;
+  gap: 15px;
+  box-shadow: 
+    0 0 15px rgba(4, 211, 234, 0.1), 
+    inset 0 0 20px rgba(4, 211, 234, 0.05);
+  overflow: hidden;
+  background-color: rgba(4, 211, 234, 0.03); 
+}
+
+.stats-title{
+  font-family: "Orbitron", sans-serif;
+  color: var(--cyan-info);
+  font-size: 24px;
+}
+
+.stats-title > .line{
+  height: 1px;
+  width: 100%;
+  margin-top: 2%;
+  background-color: rgba(4, 211, 234, 0.5);
+}
+
+.stat-row{
+  display: flex;
+  justify-content: space-between;
+  color: #818181;
+  align-items: center;
+}
+
+.stat-value{
+  color: #fff;
+}
+
+
+.threat-badge{
+  color: var(--neon-red);
+  padding: 2px 15px;
+  border: 1px solid var(--neon-red);
+}
+
+.global-stats::before{
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: 
+    linear-gradient(to right, var(--cyan-info) 2px, transparent 2px) 0 0,
+    linear-gradient(to bottom, var(--cyan-info) 2px, transparent 2px) 0 0,
+    linear-gradient(to left, var(--cyan-info) 2px, transparent 2px) 100% 0,
+    linear-gradient(to bottom, var(--cyan-info) 2px, transparent 2px) 100% 0,
+    linear-gradient(to right, var(--cyan-info) 2px, transparent 2px) 0 100%,
+    linear-gradient(to top, var(--cyan-info) 2px, transparent 2px) 0 100%,
+    linear-gradient(to left, var(--cyan-info) 2px, transparent 2px) 100% 100%,
+    linear-gradient(to top, var(--cyan-info) 2px, transparent 2px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  filter: drop-shadow(0 0 5px var(--neon-green));
+  pointer-events: none;
+}
+
+
 @keyframes glowNet {
+  0% { color: var(--cyan-info); opacity: 1; }
+  50% { color: #015d68; opacity: 0.7; }
+  100% { color: var(--cyan-info); opacity: 1; }
+}
+
+@keyframes glowSharp{
   0%{
-    color: rgb(2, 181, 201);
+    color: rgba(255, 0, 0, 1);
+    text-shadow: 0 0 10px red;
   }
-  50%{
-    color: rgb(1, 93, 104);
+
+  30%{
+    color: rgba(255, 0, 0, 0.6);
+    text-shadow: 0 0 6px red;
   }
+
+  45%{
+    color: rgba(255, 0, 0, 0.2);
+    text-shadow: none;
+  }
+
+  60%{
+    color: rgba(255, 0, 0, 0.8);
+    text-shadow: 0 0 8px red;
+  }
+
+  75%{
+    color: rgba(255, 0, 0, 0.4);
+    text-shadow: 0 0 4px red;
+  }
+
   100%{
-    color: rgb(2, 181, 201);
+    color: rgba(255, 0, 0, 1);
+    text-shadow: 0 0 10px red;
   }
 }

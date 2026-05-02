@@ -14,52 +14,53 @@
   <title>NullProtocol | Dashboard</title>
 </head>
 <body>
-  <header class="header" id="header">
     
-    <div class="header-left">
-      <h1>Null<span>Protocol</span></h1>
-      <div class="line"></div>
-      <div id="mySidenav" class="sidenav">
-        <a href="./account.html" class="nav-item active">
-          <i class="bi bi-boxes"></i>
-          dashboard
-        </a>
-        <a href="./pages/characters/characters.html" class="nav-item">
-          <i class="bi bi-people"></i>
-          characters
-        </a>
-        <a href="./pages/board/board.html" class="nav-item">
-          <i class="bi bi-clipboard"></i>
-          board
-        </a>
-        <a href="./pages/terminal/terminal.html" class="nav-item">
-          <i class="bi bi-terminal"></i>
-          terminal
-        </a>
-        <a href="./pages/progress/progress.html" class="nav-item">
-          <i class="bi bi-trophy"></i>
-          progress
-        </a>
-      </div>
-
-      <div class="agent-info">
-        <div class="agent-status">
-          active agent
+  <div class="sidebar-wrapper">
+      <div class="sidebar">
+        <h1>Null<span>Protocol</span></h1>
+        <div class="line"></div>
+        <div id="mySidenav" class="sidenav">
+          <a href="#" class="nav-item active" data-target="dashboard-section">
+            <i class="bi bi-boxes"></i>
+            приладова панель
+          </a>
+          <a href="#" class="nav-item" data-target="characters-section">
+            <i class="bi bi-people"></i>
+            персонажі
+          </a>
+          <a href="#" class="nav-item" data-target="board-section">
+            <i class="bi bi-clipboard"></i>
+            дошка
+          </a>
+          <a href="#" class="nav-item" data-target="terminal-section">
+            <i class="bi bi-terminal"></i>
+            термінал
+          </a>
+          <a href="#" class="nav-item" data-target="progress-section">
+            <i class="bi bi-trophy"></i>
+            прогрес
+          </a>
         </div>
-        <div class="agent-name" id="agent-name">
-          GHOST_HUNTER_01
-        </div>
-        <div class="agent-progress">
-          <div class="agent-level">
-            lvl 1
+        <div class="agent-info">
+          <div class="agent-status">
+            активний агент
           </div>
-          <div class="agent-progress-bar-wrapper">
-            <div class="agent-progress-bar" style="width: 0%;"></div>
+          <div class="agent-name" id="agent-name">
+            GHOST_HUNTER_01
+          </div>
+          <div class="agent-progress">
+            <div class="agent-level">
+              lvl 1
+            </div>
+            <div class="agent-progress-bar-wrapper">
+              <div class="agent-progress-bar" style="width: 72%;"></div>
+            </div>
           </div>
         </div>
       </div>
+  </div>
 
-    </div>
+  <main class="main" id="account-main">
 
     <div class="header-top">
       <div class="header-top-left">
@@ -79,8 +80,119 @@
         </span>
       </div>
     </div>
-  </header>
 
+    <section class="dashboard-section active">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Панель системи</h2>
+          <div class="header-description">
+            огляд & звіт про стан
+          </div>
+        </div>
+      
+        <div class="agent-grid">
+
+          <div class="agent-stat cyber-card">
+            <div class="agent-stat-header">
+              <div class="agent-stat-left">
+                <div class="agent-icon-box">
+                  <i class="bi bi-shield"></i>
+                </div>
+                <div class="agent-info-hero">
+                  <div class="agent-call">operative</div>
+                  <div class="agent-hero-name">ghost_hunter_01</div>
+                  <div class="agent-rank">
+                    ранг: новачок // рівень 1
+                  </div>
+                </div>
+              </div>
+
+              <div class="agent-xp-info">
+                <div class="xp-value">555</div>
+                <div class="xp-label">загальний XP</div>
+              </div>
+            </div>
+          
+            <div class="agent-progress-area">
+              <div class="progress-labels">
+                <span>перехід до 2 рівня</span>
+                <span>72%</span>
+              </div>
+              <div class="agent-stat-bar-bg">
+                <div class="agent-stat-bar-fill" style="width: 72%;"></div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="global-stats">
+            <h3 class="stats-title">
+              Global Stats
+              <div class="line"></div>
+            </h3>
+            
+            <div class="stat-row">
+              <span>розкритих випадків</span>
+              <span class="stat-value">0 / 6</span>
+            </div>
+            <div class="stat-row">
+              <span>досягнення</span>
+              <span class="stat-value">0</span>
+            </div>
+            <div class="stat-row threate">
+              <span>рівень загрози</span>
+              <span class="threat-badge">breached</span>
+            </div>
+          </div>
+        
+        </div>
+    </section>
+
+    <section class="characters-section">
+      <div class="container characters-container">
+        <div class="section-header">
+          <h2>Досьє персонажів</h2>
+          <div class="header-description">
+            зацікавлені особи
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-section">
+      <div class="container board-container">
+        <div class="section-header">
+          <h2>Дошка розслідування</h2>
+          <div class="header-description">
+            мережа кореляції доказів
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="terminal-section">
+      <div class="container container-terminal">
+        <div class="section-header">
+          <h2>Безпечний термінал</h2>
+          <div class="header-description">
+            інтерфейс командного рядка
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="progress-section">
+      <div class="container progress-container">
+        <div class="section-header">
+          <h2>Прогрес агента</h2>
+          <div class="header-description">
+            оцінювання & похвали
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
 
   <script src="./account.js"></script>
