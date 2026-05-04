@@ -61,27 +61,50 @@
 
     <div class="overlay" id="overlay"></div>
 
-    <div class="popup-enter-username" id="popUp">
+    <div class="popup-registration" id="popUp">
       <div class="close-btn" onclick="hidePopUp()">
         <i class="bi bi-x-lg"></i>
       </div>
-      <div class="popup-content-wrapper">
-        <div class="popup-title">
+      <div class="auth-tabs">
+          <button class="tab-btn active">вхід</button>
+          <button class="tab-btn">реєстрація</button>
+        </div>
+      <div class="tab-content-auth active">
+        <div class="popup-title auth">
           Ідентифікуйте себе
         </div>
-          <div class="popup-description">
-            Нейронний зв'язок встановлено. Введіть кодове ім'я слідчого.
-          </div>
-          <div class="input-field">
-            <input id="input-name" type="text" placeholder="Ім'я слідчого" autofocus autocomplete="off">
+        <div class="popup-description auth">
+          Нейронний зв'язок встановлено. Введіть кодове ім'я слідчого.  
+        </div>
+        <div class="input-field">
+          <input id="input-name" type="text" placeholder="Ім'я слідчого" autofocus autocomplete="off">
+          <input id="input-password" type="password" placeholder="Пароль" autofocus autocomplete="off">
+        </div>
+        <div class="init-contect-btn-wrapper">
+          <button class="init-conection-btn" onclick="validateInput()">
+            Ініціалізація підключення
+          </button>
+        </div>
+      </div>
 
-            <input id="input-password" type="password" placeholder="Пароль" autofocus autocomplete="off">
-          </div>
-          <div class="init-contect-btn-wrapper">
-            <button class="init-conection-btn" onclick="validateInput()">
-              Ініціалізація підключення
-            </button>
-          </div>
+      <div class="tab-content-reg">
+        <div class="popup-title auth">
+          Створення профілю
+        </div>
+        <div class="popup-description auth">
+          Створіть нову особу для доступу до системи NULL PROTOCOL. 
+        </div>
+        <div class="input-field">
+          <input id="register-name" type="text" placeholder="Ім'я слідчого"autocomplete="off">
+          <input id="register-email" type="email" placeholder="Email" autocomplete="off">
+          <input id="register-name" type="password" placeholder="Пароль" autocomplete="off">
+          <input id="register-password" type="password" placeholder="Повторіть пароль" autocomplete="off">
+        </div>
+        <div class="init-contect-btn-wrapper">
+          <button class="init-conection-btn" onclick="validateInput()">
+            Ініціалізація підключення
+          </button>
+        </div>
       </div>
     </div>
   </main>
