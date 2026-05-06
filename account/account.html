@@ -81,7 +81,7 @@
       </div>
     </div>
 
-    <section class="dashboard-section active">
+    <section id="selection-screen" class="dashboard-section active">
       <div class="container">
 
         <div class="section-header">
@@ -144,16 +144,297 @@
               <span class="threat-badge">breached</span>
             </div>
           </div>
+        </div>
+
+        <div class="cases-container">
+          <h2 class="cases-title">активні випадки</h2>
+        <div class="cases-wrapper">
+          <div class="case resolved" onclick="startLevel('Розділ 1: Перше порушення')">
+            <div class="case-header">
+              <div class="case-icon"><i class="bi bi-shield"></i></div>
+              <div class="case-doneOrNot"><i class="bi bi-check-circle"></i></div>
+            </div>
+            <div class="case-content">
+              <div class="case-subtitle">Розділ 01</div>
+              <div class="case-name">Перше порушення</div>
+              <div class="case-description">Розслідуйте витік облікових даних OmniCorp.</div>
+            </div>
+            <div class="line-case"></div>
+            <div class="case-footer">
+              <div class="case-status">Статус: <span>Відкрито</span></div>
+            </div>
+          </div>
+        
+          <div class="case open">
+            <div class="case-header">
+              <div class="case-icon"><i class="bi bi-bullseye"></i></div>
+              <div class="case-doneOrNot"><i class="bi bi-check-circle"></i></div>
+            </div>
+            <div class="case-content">
+              <div class="case-subtitle">Розділ 02</div>
+              <div class="case-name">Фішингова атака</div>
+              <div class="case-description">Проаналізуйте підозрілі вхідні листи.</div>
+            </div>
+            <div class="line-case"></div>
+            <div class="case-footer">
+              <div class="case-status">Статус: <span>Відкрито</span></div>
+            </div>
+          </div>
+        
+          <div class="case open">
+            <div class="case-header">
+              <div class="case-icon"><i class="bi bi-terminal"></i></div>
+              <div class="case-doneOrNot"><i class="bi bi-check-circle"></i></div>
+            </div>
+            <div class="case-content">
+              <div class="case-subtitle">Розділ 03</div>
+              <div class="case-name">Приховане повідомлення</div>
+              <div class="case-description">Декодуйте перехоплені зашифровані тексти.</div>
+            </div>
+            <div class="line-case"></div>
+            <div class="case-footer">
+              <div class="case-status">Статус: <span>Відкрито</span></div>
+            </div>
+          </div>
+        
+          <div class="case open">
+            <div class="case-header">
+              <div class="case-icon"><i class="bi bi-exclamation-triangle"></i></div>
+              <div class="case-doneOrNot"></div>
+            </div>
+            <div class="case-content">
+              <div class="case-subtitle">Розділ 04</div>
+              <div class="case-name">Вразливість систем</div>
+              <div class="case-description">Знайдіть вектори атак SQLi та XSS.</div>
+            </div>
+            <div class="line-case"></div>
+            <div class="case-footer">
+              <div class="case-status">Статус: <span>Заблоковано</span></div>
+            </div>
+          </div>
+        
+          <div class="case open">
+            <div class="case-header">
+              <div class="case-icon"><i class="bi bi-clock"></i></div>
+              <div class="case-doneOrNot"><i class="bi bi-lock"></i></div>
+            </div>
+            <div class="case-content">
+              <div class="case-subtitle">Розділ 05</div>
+              <div class="case-name">Злам сервера</div>
+              <div class="case-description">Перегляньте логи доступу до сервера.</div>
+            </div>
+            <div class="line-case"></div>
+            <div class="case-footer">
+              <div class="case-status">Статус: <span>Заблоковано</span></div>
+            </div>
+          </div>
+        
+          <div class="case locked">
+            <div class="case-header">
+              <div class="case-icon"><i class="bi bi-shield-slash"></i></div>
+              <div class="case-doneOrNot"><i class="bi bi-lock"></i></div>
+            </div>
+            <div class="case-content">
+              <div class="case-subtitle">Розділ 06</div>
+              <div class="case-name">Протокол Привид</div>
+              <div class="case-description">Фінальне протистояння з ворогом.</div>
+            </div>
+            <div class="line-case"></div>
+            <div class="case-footer">
+              <div class="case-status">Статус: <span>Заблоковано</span></div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="level-screen" style="display: none;">
+      <div class="mission-wrapper small">
+      
+        <div class="mission-top-bar">
+          <div class="mission-title-area">
+            <button onclick="backToMenu()" class="back-btn">← ПОВЕРНУТИСЯ</button>
+            <h1 id="current-level-title">РОЗДІЛ 1: ПЕРШИЙ ЗЛОМ</h1>
+            <p class="target-text">Ціль: Внутрішній портал OmniCorp</p>
+          </div>
+        </div>
+      
+        <div class="mission-grid">
+        
+          <div class="mission-left">
+          
+            <div class="cyber-card">
+              <h3>БРИФІНГ МІСІЇ</h3>
+              <p>
+                OmniCorp зазнала витоку даних. Хакер "Ghost" отримав доступ,
+                використовуючи акаунт розробника зі слабким паролем.
+              </p>
+            
+              <ul class="objective-list">
+                <li class="done">Знайти портал OmniCorp</li>
+                <li class="active" id="startBruteForceLi">Запустити brute-force атаку</li>
+                <li id="aaa">Обійти авторизацію</li>
+              </ul>
+            </div>
+          
+            <div class="cyber-card">
+              <h3>>_ BRUTE FORCE TOOL</h3>
+              <div class="tool-display" id="toolDisplay">
+                READY...
+              </div>
+              <button class="run-btn" id="runBtn">
+                RUN HYDRA_CRACK.EXE
+              </button>
+            </div>
+          
+          </div>
+        
+          <div class="mission-right">
+            <div class="cyber-card access-card">
+            
+              <div class="omnicorp-logo">
+                <i class="bi bi-shield-lock"></i>
+                <span>OMNICORP</span>
+                <small>SECURE EMPLOYEE INTRANET</small>
+              </div>
+            
+              <div class="status-box" id="statusBox">
+                > ACCESS DENIED_
+              </div>
+            
+              <p class="welcome-msg" id="welcomeMsg"></p>
+              <p class="reward-text" id="rewardText"></p>
+            
+              <button class="next-btn" id="nextBtn" style="display:none;">
+                PROCEED TO CHAPTER 2
+              </button>
+            
+            </div>
+          </div>
         
         </div>
+      </div>
     </section>
 
     <section class="characters-section">
       <div class="container characters-container">
         <div class="section-header">
-          <h2>Досьє персонажів</h2>
-          <div class="header-description">
-            зацікавлені особи
+          <h2 class="cases-title">Досьє персонажів</h2>
+          <div class="header-description">зацікавлені особи</div>
+        </div>
+        
+        <div class="section-main">
+          <div class="characters-wrapper">
+            
+            <div class="character player-card">
+              <div class="corner top-left"></div><div class="corner top-right"></div>
+              <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+              
+              <div class="character-photo player-img">
+                <img src="../images/u-photo.jpg" alt="You photo" style="width: 100%;">
+                <div class="photo-overlay">YOU</div>
+              </div>
+              <div class="character-content">
+                <div class="character-call">Слідчий</div>
+                <div class="character-name">GHOST_HUNTER_01</div>
+                <div class="character-info">
+                  <div class="info-row">
+                    <span>СТАТУС</span>
+                    <span class="status-active">АКТИВНИЙ</span>
+                  </div>
+                  <div class="info-row">
+                    <span>РІВЕНЬ</span>
+                    <span>4</span>
+                  </div>
+                  <div class="info-row">
+                    <span>ДОСВІД (XP)</span>
+                    <span>555</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="character target-card ghost-red">
+              <div class="corner top-left"></div><div class="corner top-right"></div>
+              <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+              
+              <div class="character-photo ghost-img">
+                <img src="../images/ghost-photo.webp" alt="Hacker photo" style="width: 100%;">
+                <div class="photo-label">НА ВОЛІ</div>
+              </div>
+              <div class="character-content">
+                <div class="character-call">Невідомий хакер</div>
+                <div class="character-name">GHOST</div>
+                <div class="character-description">
+                  Висококваліфікований зловмисник, що спеціалізується на багатовекторних атаках. Особа невідома. Мотиви незрозумілі.
+                </div>
+                <div class="character-footer">
+                  <div class="suspicion-wrapper">
+                    <div class="suspicion-header"><span>ШКАЛА ПІДОЗРИ</span> <span>100%</span></div>
+                    <div class="progress-bar"><div class="progress red" style="width: 100%"></div></div>
+                  </div>
+                  <div class="evidence-row">
+                    <span>ФАЙЛИ ДОКАЗІВ</span>
+                    <span>14</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="character target-card">
+              <div class="corner top-left"></div><div class="corner top-right"></div>
+              <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+              
+              <div class="character-photo ceo-img">
+                <img src="../images/ceo-photo.jpg" alt="Ceo photo" style="width: 100%;">
+                <div class="photo-label">СКОМПРОМЕТОВАНИЙ</div>
+              </div>
+              <div class="character-content">
+                <div class="character-call">Жертва / Основна ціль</div>
+                <div class="character-name">ГЕНЕРАЛЬНИЙ ДИРЕКТОР</div>
+                <div class="character-description">
+                  Керівник OmniCorp. Його обліковий запис було зламано через фішинг, що призвело до початкового витоку даних.
+                </div>
+                <div class="character-footer">
+                  <div class="suspicion-wrapper">
+                    <div class="suspicion-header"><span>ШКАЛА ПІДОЗРИ</span> <span>40%</span></div>
+                    <div class="progress-bar"><div class="progress green" style="width: 40%"></div></div>
+                  </div>
+                  <div class="evidence-row">
+                    <span>ФАЙЛИ ДОКАЗІВ</span>
+                    <span>3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="character target-card">
+              <div class="corner top-left"></div><div class="corner top-right"></div>
+              <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+              
+              <div class="character-photo agent-img">
+                <img src="../images/agent-Vince.jpg" alt="Agent Vince photo" style="width: 100%;">
+                <div class="photo-label">АКТИВНИЙ</div>
+              </div>
+              <div class="character-content">
+                <div class="character-call">Відділ кіберзлочинів</div>
+                <div class="character-name">АГЕНТ ВЕНС</div>
+                <div class="character-description">
+                  Провідний детектив відділу кіберзлочинів. Координує міжвідомчу відповідь на атаки Ghost.
+                </div>
+                <div class="character-footer">
+                  <div class="suspicion-wrapper">
+                    <div class="suspicion-header"><span>ШКАЛА ПІДОЗРИ</span> <span>10%</span></div>
+                    <div class="progress-bar"><div class="progress green" style="width: 10%"></div></div>
+                  </div>
+                  <div class="evidence-row">
+                    <span>ФАЙЛИ ДОКАЗІВ</span>
+                    <span>0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
           </div>
         </div>
       </div>
@@ -163,8 +444,39 @@
       <div class="container board-container">
         <div class="section-header">
           <h2>Дошка розслідування</h2>
-          <div class="header-description">
-            мережа кореляції доказів
+          <div class="header-description">мережа кореляції доказів</div>
+        </div>
+      
+        <div class="board-canvas">
+          <svg class="connections-svg">
+            <line x1="40%" y1="20%" x2="55%" y2="40%" stroke="#00ff7f" stroke-width="2" />
+            <line x1="55%" y1="40%" x2="40%" y2="65%" stroke="#00ff7f" stroke-width="2" />
+            <line x1="40%" y1="65%" x2="50%" y2="85%" stroke="#00ff7f" stroke-width="2" />
+          </svg>
+        
+          <div class="node suspect ghost" style="top: 10%; left: 35%;">
+            <i class="fas fa-user"></i>
+            <span>Ghost (Unknown)</span>
+          </div>
+        
+          <div class="node file" style="top: 35%; left: 50%;">
+            <i class="fas fa-file-alt"></i>
+            <span>merger_details.pdf</span>
+          </div>
+        
+          <div class="node incident" style="top: 55%; left: 35%;">
+            <i class="fas fa-shield-alt"></i>
+            <span>OmniCorp Breach</span>
+          </div>
+        
+          <div class="node ip" style="top: 55%; left: 55%;">
+            <i class="fas fa-network-wired"></i>
+            <span>145.22.89.11</span>
+          </div>
+        
+          <div class="node suspect admin" style="top: 80%; left: 45%;">
+            <i class="fas fa-user-secret"></i>
+            <span>dev_admin</span>
           </div>
         </div>
       </div>
@@ -174,8 +486,20 @@
       <div class="container container-terminal">
         <div class="section-header">
           <h2>Безпечний термінал</h2>
-          <div class="header-description">
-            інтерфейс командного рядка
+          <div class="header-description">інтерфейс командного рядка</div>
+        </div>
+      
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="prompt-user">root@omnicorp-internal:~</span>
+          </div>
+          <div class="terminal-body" id="terminalOutput">
+            <div class="output-line">OmniCorp Secure Terminal v9.0.4</div>
+            <div class="output-line">Type 'help' for a list of available commands.</div>
+          </div>
+          <div class="terminal-input-line">
+            <span class="prompt-char">$</span>
+            <input type="text" id="terminalInput" autofocus spellcheck="false">
           </div>
         </div>
       </div>
@@ -183,15 +507,10 @@
 
     <section class="progress-section">
       <div class="container progress-container">
-        <div class="section-header">
-          <h2>Прогрес агента</h2>
-          <div class="header-description">
-            оцінювання & похвали
-          </div>
-        </div>
+          <h2>404 Not Found</h2>
+          <p>в розробці</p>
       </div>
     </section>
-
   </main>
 
 

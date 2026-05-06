@@ -1,0 +1,37 @@
+@keyframes glowNet {
+  0% { color: var(--cyan-info); opacity: 1; }
+  50% { color: #015d68; opacity: 0.7; }
+  100% { color: var(--cyan-info); opacity: 1; }
+}
+
+@keyframes glowSharp{
+  0%{
+    color: rgba(255, 0, 0, 1);
+    text-shadow: 0 0 10px red;
+  }
+
+  30%{
+    color: rgba(255, 0, 0, 0.6);
+    text-shadow: 0 0 6px red;
+  }
+
+  45%{
+    color: rgba(255, 0, 0, 0.2);
+    text-shadow: none;
+  }
+
+  60%{
+    color: rgba(255, 0, 0, 0.8);
+    text-shadow: 0 0 8px red;
+  }
+
+  75%{
+    color: rgba(255, 0, 0, 0.4);
+    text-shadow: 0 0 4px red;
+  }
+
+  100%{
+    color: rgba(255, 0, 0, 1);
+    text-shadow: 0 0 10px red;
+  }
+}

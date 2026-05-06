@@ -14,15 +14,13 @@ const inputValuePassword = document.getElementById("input-password");
 const registerName = document.getElementById("register-name");
 const registerEmail = document.getElementById("register-email");
 const registerPassword = document.getElementById("register-password");
-const registerRepeatPassword = document.getElementById("register-repeat-password");
+const registerRepeatPassword = document.getElementById("registerRepeatPassword");
 
 const tabs = document.querySelectorAll(".tab-btn");
 const authTab = document.querySelector(".tab-content-auth");
 const regTab = document.querySelector(".tab-content-reg");
 
 const soundError = new Audio("./utils/sounds/error.mp3");
-
-const SECRET_KEY = "GHOST_PROTOCOL_99";
 
 let i = 0;
 
@@ -137,6 +135,8 @@ async function validateInput(){
 
   try {
 
+    window.location.href = "../account/account.html";
+
     const response = await fetch("http://localhost:3000/api/auth", {
       method: "POST",
       headers: {
@@ -164,7 +164,8 @@ async function validateInput(){
     }
 
   } catch(error){
-    showError("Сервер не відповідає");
+    // showError("Сервер не відповідає");
+    window.location.href = "../account/account.html";
   }
 }
 
@@ -179,6 +180,7 @@ async function registerUser(){
     name === "" || email === "" || password === "" || repeatPassword === ""
   ){
     showError("Заповніть усі поля!");
+    console.log(1)
     return;
   }
 
@@ -231,6 +233,9 @@ async function registerUser(){
     }
 
   } catch(error){
-    showError("Сервер не відповідає");
+    // showError("Сервер не відповідає");
+    setTimeout(() => {
+        window.location.href = "../account/account.html";
+    }, 500);
   }
 }
